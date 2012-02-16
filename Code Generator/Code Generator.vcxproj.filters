@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
+    <Filter Include="Code Templates">
+      <UniqueIdentifier>{608a59f5-76c3-4bf4-8217-b3cde24d6b4a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="code generators.cpp">
@@ -20,6 +23,15 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code templates\infix binary operators.cpp">
+      <Filter>Code Templates</Filter>
+    </ClCompile>
+    <ClCompile Include="code templates\prefix binary functions.cpp">
+      <Filter>Code Templates</Filter>
+    </ClCompile>
+    <ClCompile Include="code templates\reduce binary operators and functions.cpp">
+      <Filter>Code Templates</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
