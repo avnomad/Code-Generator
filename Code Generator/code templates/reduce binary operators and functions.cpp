@@ -45,7 +45,7 @@ double ASL::$(TempVector v) // overloaded version $
 #pragma region Matrix
 
 @// doesn't work on matrices with 0 elements.
-TempVector ASL::$(Matrix A , char dim) // overloaded version $
+TempVector ASL::$(Matrix A , unsigned int dim) // overloaded version $
 {
 	register unsigned int reduceDimention,c;
 	register anticast source,destination;
@@ -104,7 +104,7 @@ TempVector ASL::$(Matrix A , char dim) // overloaded version $
 
 
 @// doesn't work on matrices with 0 elements.
-TempVector ASL::$(TempMatrix A , char dim) // overloaded version $
+TempVector ASL::$(TempMatrix A , unsigned int dim) // overloaded version $
 {
 	register unsigned int reduceDimention,c;
 	register anticast source,destination;
