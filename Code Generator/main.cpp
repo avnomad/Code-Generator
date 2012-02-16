@@ -144,8 +144,6 @@ int main()
 	unsigned int *cs;
 	// other
 	char buffer[1024] = "generated code/source files/";
-	char mkdirCommand[1024] = "if not exist \"generated code/source files/";
-	unsigned int mkdirCommandLength = strlen(mkdirCommand);
 	unsigned int l;
 
 	l = strlen(buffer);
@@ -189,9 +187,7 @@ int main()
 	s = alternativeFunctionCode;
 	while(*p)
 	{
-		sprintf(&mkdirCommand[mkdirCommandLength],"%s\" mkdir \"generated code/source files/%s\"",*p,*p);
-		system(mkdirCommand);
-		sprintf(&buffer[l],"%s/%s.cpp",*p,*p);
+		sprintf(&buffer[l],"%s.cpp",*p,*p);
 		if(writeFile = fopen(buffer,"w"))
 		{
 			generateBinaryFunctions(writeFile,*q,*r,*s);
@@ -210,9 +206,7 @@ int main()
 	s = alternativeOperatorCode;
 	while(*p)
 	{
-		sprintf(&mkdirCommand[mkdirCommandLength],"%s operator\" mkdir \"generated code/source files/%s operator\"",*p,*p);
-		system(mkdirCommand);
-		sprintf(&buffer[l],"%s operator/%s operator.cpp",*p,*p);
+		sprintf(&buffer[l],"%s operator.cpp",*p,*p);
 		if(writeFile = fopen(buffer,"w"))
 		{
 			generateBinaryOperators(writeFile,*q,*r,*s);
@@ -230,9 +224,7 @@ int main()
 	r = innerUnaryOperatorNames;
 	while(*p)
 	{
-		sprintf(&mkdirCommand[mkdirCommandLength],"%s operator\" mkdir \"generated code/source files/%s operator\"",*p,*p);
-		system(mkdirCommand);
-		sprintf(&buffer[l],"%s operator/%s operator.cpp",*p,*p);
+		sprintf(&buffer[l],"%s operator.cpp",*p,*p);
 		if(writeFile = fopen(buffer,"w"))
 		{
 			generateUnaryOperators(writeFile,*q,*r);
@@ -249,9 +241,7 @@ int main()
 	q = innerUnaryFunctionNames;
 	while(*p)
 	{
-		sprintf(&mkdirCommand[mkdirCommandLength],"%s\" mkdir \"generated code/source files/%s\"",*p,*p);
-		system(mkdirCommand);
-		sprintf(&buffer[l],"%s/%s.cpp",*p,*p);
+		sprintf(&buffer[l],"%s.cpp",*p,*p);
 		if(writeFile = fopen(buffer,"w"))
 		{
 			generateUnaryFunctions(writeFile,*p,*q);
@@ -272,9 +262,7 @@ int main()
 	t = alternativeReduceBasedFunctionCode;
 	while(*p)
 	{
-		sprintf(&mkdirCommand[mkdirCommandLength],"%s\" mkdir \"generated code/source files/%s\"",*p,*p);
-		system(mkdirCommand);
-		sprintf(&buffer[l],"%s/%s.cpp",*p,*p);
+		sprintf(&buffer[l],"%s.cpp",*p,*p);
 		if(writeFile = fopen(buffer,*m))
 		{
 			generateReduceBasedFunctions(writeFile,*q,*r,*t,*m,*cs);
