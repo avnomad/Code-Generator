@@ -15,7 +15,7 @@ void generateUnaryFunctions(FILE *fileToWrite, const char *outerFunctionName, co
 	FILE *headerFile;
 
 	// write in headers.
-	if(headerFile = fopen("c:\\Library\\TempVector.txt","a"))
+	if(headerFile = fopen("generated code/header parts/TempVector.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempVector %s(Vector);\t\t\t\t\t\t\t\t\t// %s\n",outerFunctionName,outerFunctionName);
 		fprintf(headerFile,"\tfriend TempVector %s(TempVector);\t\t\t\t\t\t\t\t//\t>>\n",outerFunctionName);		
@@ -23,14 +23,14 @@ void generateUnaryFunctions(FILE *fileToWrite, const char *outerFunctionName, co
 	}
 	else fprintf(stderr,"error opening file.\n");
 
-	if(headerFile = fopen("c:\\Library\\Vector.txt","a"))
+	if(headerFile = fopen("generated code/header parts/Vector.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempVector %s(Vector);\t\t\t\t\t\t\t\t\t// %s\n",outerFunctionName,outerFunctionName);
 		fclose(headerFile);
 	}
 	else fprintf(stderr,"error opening file.\n");
 
-	if(headerFile = fopen("c:\\Library\\TempMatrix.txt","a"))
+	if(headerFile = fopen("generated code/header parts/TempMatrix.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempMatrix %s(Matrix);\t\t\t\t\t\t\t\t\t// %s\n",outerFunctionName,outerFunctionName);
 		fprintf(headerFile,"\tfriend TempMatrix %s(TempMatrix);\t\t\t\t\t\t\t\t//\t>>\n",outerFunctionName);		
@@ -38,7 +38,7 @@ void generateUnaryFunctions(FILE *fileToWrite, const char *outerFunctionName, co
 	}
 	else fprintf(stderr,"error opening file.\n");
 
-	if(headerFile = fopen("c:\\Library\\Matrix.txt","a"))
+	if(headerFile = fopen("generated code/header parts/Matrix.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempMatrix %s(Matrix);\t\t\t\t\t\t\t\t\t// %s\n",outerFunctionName,outerFunctionName);
 		fclose(headerFile);
@@ -93,7 +93,7 @@ void generateUnaryOperators(FILE *fileToWrite, const char *outerOperatorName, co
 	FILE *headerFile;
 
 	// write in headers.
-	if(headerFile = fopen("c:\\Library\\TempVector.txt","a"))
+	if(headerFile = fopen("generated code/header parts/TempVector.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempVector operator %s (Vector);\t\t\t\t\t\t\t// operator %s",outerOperatorName,outerOperatorName);
 		fprintf(headerFile,"%s\n",*outerOperatorName == '-'||*outerOperatorName == '+'||*outerOperatorName == '*'||*outerOperatorName == '&'?" (unary)":"");
@@ -102,7 +102,7 @@ void generateUnaryOperators(FILE *fileToWrite, const char *outerOperatorName, co
 	}
 	else fprintf(stderr,"error opening file.\n");
 
-	if(headerFile = fopen("c:\\Library\\Vector.txt","a"))
+	if(headerFile = fopen("generated code/header parts/Vector.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempVector operator %s (Vector);\t\t\t\t\t\t\t// operator %s",outerOperatorName,outerOperatorName);
 		fprintf(headerFile,"%s\n",*outerOperatorName == '-'||*outerOperatorName == '+'||*outerOperatorName == '*'||*outerOperatorName == '&'?" (unary)":"");
@@ -110,7 +110,7 @@ void generateUnaryOperators(FILE *fileToWrite, const char *outerOperatorName, co
 	}
 	else fprintf(stderr,"error opening file.\n");
 
-	if(headerFile = fopen("c:\\Library\\TempMatrix.txt","a"))
+	if(headerFile = fopen("generated code/header parts/TempMatrix.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempMatrix operator %s (Matrix);\t\t\t\t\t\t\t// operator %s",outerOperatorName,outerOperatorName);
 		fprintf(headerFile,"%s\n",*outerOperatorName == '-'||*outerOperatorName == '+'||*outerOperatorName == '*'||*outerOperatorName == '&'?" (unary)":"");
@@ -119,7 +119,7 @@ void generateUnaryOperators(FILE *fileToWrite, const char *outerOperatorName, co
 	}
 	else fprintf(stderr,"error opening file.\n");
 
-	if(headerFile = fopen("c:\\Library\\Matrix.txt","a"))
+	if(headerFile = fopen("generated code/header parts/Matrix.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempMatrix operator %s (Matrix);\t\t\t\t\t\t\t// operator %s",outerOperatorName,outerOperatorName);
 		fprintf(headerFile,"%s\n",*outerOperatorName == '-'||*outerOperatorName == '+'||*outerOperatorName == '*'||*outerOperatorName == '&'?" (unary)":"");
@@ -216,7 +216,7 @@ void generateBinaryOperators(FILE *fileToWrite, const char *outerOperatorName, c
 
 
 	//write the prototypes for the functions - TempVector.
-	if(headerFile = fopen("c:\\Library\\TempVector.txt","a"))
+	if(headerFile = fopen("generated code/header parts/TempVector.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempVector operator %s (Vector,Vector);\t\t\t\t\t// operator %s\n",outerOperatorName,outerOperatorName);
 		fprintf(headerFile,"\tfriend TempVector operator %s (TempVector,Vector);\t\t\t\t//\t>>\n",outerOperatorName);
@@ -233,7 +233,7 @@ void generateBinaryOperators(FILE *fileToWrite, const char *outerOperatorName, c
 
 
 	//write the prototypes for the functions - Vector.
-	if(headerFile = fopen("c:\\Library\\Vector.txt","a"))
+	if(headerFile = fopen("generated code/header parts/Vector.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempVector operator %s (Vector,Vector);\t\t\t\t\t// operator %s\n",outerOperatorName,outerOperatorName);
 		fprintf(headerFile,"\tfriend TempVector operator %s (TempVector,Vector);\t\t\t\t//\t>>\n",outerOperatorName);
@@ -247,7 +247,7 @@ void generateBinaryOperators(FILE *fileToWrite, const char *outerOperatorName, c
 
 
 	//write the prototypes for the functions - TempMatrix.
-	if(headerFile = fopen("c:\\Library\\TempMatrix.txt","a"))
+	if(headerFile = fopen("generated code/header parts/TempMatrix.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempMatrix operator %s (Matrix,Matrix);\t\t\t\t\t// operator %s\n",outerOperatorName,outerOperatorName);
 		fprintf(headerFile,"\tfriend TempMatrix operator %s (TempMatrix,Matrix);\t\t\t\t//\t>>\n",outerOperatorName);
@@ -264,7 +264,7 @@ void generateBinaryOperators(FILE *fileToWrite, const char *outerOperatorName, c
 
 
 	//write the prototypes for the functions - Matrix.
-	if(headerFile = fopen("c:\\Library\\Matrix.txt","a"))
+	if(headerFile = fopen("generated code/header parts/Matrix.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempMatrix operator %s (Matrix,Matrix);\t\t\t\t\t// operator %s\n",outerOperatorName,outerOperatorName);
 		fprintf(headerFile,"\tfriend TempMatrix operator %s (TempMatrix,Matrix);\t\t\t\t//\t>>\n",outerOperatorName);
@@ -327,7 +327,7 @@ void generateBinaryFunctions(FILE *fileToWrite, const char *outerFunctionName, c
 
 
 	// write the prototypes for the functions - TempVector.
-	if(headerFile = fopen("c:\\Library\\TempVector.txt","a"))
+	if(headerFile = fopen("generated code/header parts/TempVector.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempVector %s(Vector,Vector);\t\t\t\t\t// %s\n",outerFunctionName,outerFunctionName);
 		fprintf(headerFile,"\tfriend TempVector %s(TempVector,Vector);\t\t\t\t//\t>>\n",outerFunctionName);
@@ -344,7 +344,7 @@ void generateBinaryFunctions(FILE *fileToWrite, const char *outerFunctionName, c
 
 
 	// write the prototypes for the functions - Vector.
-	if(headerFile = fopen("c:\\Library\\Vector.txt","a"))
+	if(headerFile = fopen("generated code/header parts/Vector.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempVector %s(Vector,Vector);\t\t\t\t\t// %s\n",outerFunctionName,outerFunctionName);
 		fprintf(headerFile,"\tfriend TempVector %s(TempVector,Vector);\t\t\t\t//\t>>\n",outerFunctionName);
@@ -358,7 +358,7 @@ void generateBinaryFunctions(FILE *fileToWrite, const char *outerFunctionName, c
 
 
 	// write the prototypes for the functions - TempMatrix.
-	if(headerFile = fopen("c:\\Library\\TempMatrix.txt","a"))
+	if(headerFile = fopen("generated code/header parts/TempMatrix.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempMatrix %s(Matrix,Matrix);\t\t\t\t\t// %s\n",outerFunctionName,outerFunctionName);
 		fprintf(headerFile,"\tfriend TempMatrix %s(TempMatrix,Matrix);\t\t\t\t//\t>>\n",outerFunctionName);
@@ -375,7 +375,7 @@ void generateBinaryFunctions(FILE *fileToWrite, const char *outerFunctionName, c
 
 
 	// write the prototypes for the functions - Matrix.
-	if(headerFile = fopen("c:\\Library\\Matrix.txt","a"))
+	if(headerFile = fopen("generated code/header parts/Matrix.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempMatrix %s(Matrix,Matrix);\t\t\t\t\t// %s\n",outerFunctionName,outerFunctionName);
 		fprintf(headerFile,"\tfriend TempMatrix %s(TempMatrix,Matrix);\t\t\t\t//\t>>\n",outerFunctionName);
@@ -428,7 +428,7 @@ void generateReduceBasedFunctions(FILE *fileToWrite, const char *outerFunctionNa
 
 
 		// write the prototypes for the functions - TempVector.
-	if(headerFile = fopen("c:\\Library\\TempVector.txt","a"))
+	if(headerFile = fopen("generated code/header parts/TempVector.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend double %s(Vector);\t\t\t\t\t\t\t\t\t\t// %s\n",outerFunctionName,outerFunctionName);
 		fprintf(headerFile,"\tfriend double %s(TempVector);\t\t\t\t\t\t\t\t\t//\t>>\n",outerFunctionName);
@@ -440,7 +440,7 @@ void generateReduceBasedFunctions(FILE *fileToWrite, const char *outerFunctionNa
 
 
 		// write the prototypes for the functions - Vector.
-	if(headerFile = fopen("c:\\Library\\Vector.txt","a"))
+	if(headerFile = fopen("generated code/header parts/Vector.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend double %s(Vector);\t\t\t\t\t\t\t\t\t\t// %s\n",outerFunctionName,outerFunctionName);
 		fclose(headerFile);
@@ -449,7 +449,7 @@ void generateReduceBasedFunctions(FILE *fileToWrite, const char *outerFunctionNa
 
 
 		// write the prototypes for the functions - TempMatrix.
-	if(headerFile = fopen("c:\\Library\\TempMatrix.txt","a"))
+	if(headerFile = fopen("generated code/header parts/TempMatrix.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempVector %s(TempMatrix,char);\t\t\t\t\t\t\t// %s\n",outerFunctionName,outerFunctionName);
 		fclose(headerFile);
@@ -458,7 +458,7 @@ void generateReduceBasedFunctions(FILE *fileToWrite, const char *outerFunctionNa
 
 
 		// write the prototypes for the functions - Matrix.
-	if(headerFile = fopen("c:\\Library\\Matrix.txt","a"))
+	if(headerFile = fopen("generated code/header parts/Matrix.part.h","a"))
 	{
 		fprintf(headerFile,"\tfriend TempVector %s(Matrix,char);\t\t\t\t\t\t\t\t// %s\n",outerFunctionName,outerFunctionName);
 		fclose(headerFile);

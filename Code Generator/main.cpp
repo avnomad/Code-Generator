@@ -143,10 +143,18 @@ int main()
 	char *(*t)[4];
 	unsigned int *cs;
 	// other
-	char buffer[1024] = "C:\\Documents and Settings\\Nightmare\\My Documents\\Visual Studio 2008\\Projects\\Library\\Double Precision Library\\Real Matrices and Vectors\\";
+	char buffer[1024] = "generated code/source files/";
+	char mkdirCommand[1024] = "if not exist \"generated code/source files/";
+	unsigned int mkdirCommandLength = strlen(mkdirCommand);
 	unsigned int l;
 
 	l = strlen(buffer);
+
+	// remove old files
+	remove("generated code/header parts/TempVector.part.h");
+	remove("generated code/header parts/Vector.part.h");
+	remove("generated code/header parts/TempMatrix.part.h");
+	remove("generated code/header parts/Matrix.part.h");
 
 	 /* test input generator */
 	//if(writeFile = fopen("c:\\Library\\main.txt","w"))
@@ -170,17 +178,20 @@ int main()
 	//}
 	//else fprintf(stderr,"error opening file.\n");*/
 
+
 	/* actual code generator */
 
 									/* binary function generation loop */
 
-	/*p = binaryFunctionFileNames;			//generated succesfully.
+	p = binaryFunctionFileNames;			//generated succesfully.
 	q = outerBinaryFunctionNames;
 	r = innerBinaryFunctionNames;
 	s = alternativeFunctionCode;
 	while(*p)
 	{
-		sprintf(&buffer[l],"%s\\%s.cpp",*p,*p);
+		sprintf(&mkdirCommand[mkdirCommandLength],"%s\" mkdir \"generated code/source files/%s\"",*p,*p);
+		system(mkdirCommand);
+		sprintf(&buffer[l],"%s/%s.cpp",*p,*p);
 		if(writeFile = fopen(buffer,"w"))
 		{
 			generateBinaryFunctions(writeFile,*q,*r,*s);
@@ -189,7 +200,7 @@ int main()
 		else
 			fprintf(stderr,"error opening the file \"%s\".\n",buffer);
 		++p , ++q , ++r , ++s;
-	}*/
+	}
 
 									/* binary operator generation loop */
 
@@ -199,7 +210,9 @@ int main()
 	s = alternativeOperatorCode;
 	while(*p)
 	{
-		sprintf(&buffer[l],"%s operator\\%s operator.cpp",*p,*p);
+		sprintf(&mkdirCommand[mkdirCommandLength],"%s operator\" mkdir \"generated code/source files/%s operator\"",*p,*p);
+		system(mkdirCommand);
+		sprintf(&buffer[l],"%s operator/%s operator.cpp",*p,*p);
 		if(writeFile = fopen(buffer,"w"))
 		{
 			generateBinaryOperators(writeFile,*q,*r,*s);
@@ -212,12 +225,14 @@ int main()
 
 									/* unary operator generation loop */
 
-	/*p = unaryOperatorFileNames;			//generated succesfully.
+	p = unaryOperatorFileNames;			//generated succesfully.
 	q = outerUnaryOperatorNames;
 	r = innerUnaryOperatorNames;
 	while(*p)
 	{
-		sprintf(&buffer[l],"%s operator\\%s operator.cpp",*p,*p);
+		sprintf(&mkdirCommand[mkdirCommandLength],"%s operator\" mkdir \"generated code/source files/%s operator\"",*p,*p);
+		system(mkdirCommand);
+		sprintf(&buffer[l],"%s operator/%s operator.cpp",*p,*p);
 		if(writeFile = fopen(buffer,"w"))
 		{
 			generateUnaryOperators(writeFile,*q,*r);
@@ -226,15 +241,17 @@ int main()
 		else
 			fprintf(stderr,"error opening the file \"%s\".\n",buffer);
 		++p , ++q , ++r;
-	}*/
+	}
 
 									/* unary function generation loop */
 
-	/*p = outerUnaryFunctionNames;			//generated succesfully.
+	p = outerUnaryFunctionNames;			//generated succesfully.
 	q = innerUnaryFunctionNames;
 	while(*p)
 	{
-		sprintf(&buffer[l],"%s\\%s.cpp",*p,*p);
+		sprintf(&mkdirCommand[mkdirCommandLength],"%s\" mkdir \"generated code/source files/%s\"",*p,*p);
+		system(mkdirCommand);
+		sprintf(&buffer[l],"%s/%s.cpp",*p,*p);
 		if(writeFile = fopen(buffer,"w"))
 		{
 			generateUnaryFunctions(writeFile,*p,*q);
@@ -243,11 +260,11 @@ int main()
 		else
 			fprintf(stderr,"error opening the file \"%s\".\n",buffer);
 		++p , ++q;
-	}*/
+	}
 
 									/* reduce-based function generation loop */
 
-	/*p = reduceBasedFunctionFileNames;			//generated succesfully.
+	p = reduceBasedFunctionFileNames;			//generated succesfully.
 	q = outerReduceBasedFunctionNames;
 	r = innerReduceBasedFunctionNames;
 	m = reduceBasedFunctionModes;
@@ -255,7 +272,9 @@ int main()
 	t = alternativeReduceBasedFunctionCode;
 	while(*p)
 	{
-		sprintf(&buffer[l],"%s\\%s.cpp",*p,*p);
+		sprintf(&mkdirCommand[mkdirCommandLength],"%s\" mkdir \"generated code/source files/%s\"",*p,*p);
+		system(mkdirCommand);
+		sprintf(&buffer[l],"%s/%s.cpp",*p,*p);
 		if(writeFile = fopen(buffer,*m))
 		{
 			generateReduceBasedFunctions(writeFile,*q,*r,*t,*m,*cs);
@@ -264,7 +283,7 @@ int main()
 		else
 			fprintf(stderr,"error opening the file \"%s\".\n",buffer);
 		++p , ++q , ++r , ++m , ++cs , ++t;
-	}*/
+	}
 
 
 	system("PAUSE");

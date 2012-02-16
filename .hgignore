@@ -2,6 +2,7 @@ syntax: regexp
 Debug/*
 Release/*
 ipch/*
+generated code/*
 syntax: glob
 Code Generator.opensdf
 Code Generator.sdf
